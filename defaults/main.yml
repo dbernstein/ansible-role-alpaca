@@ -3,6 +3,9 @@
 alpaca_from_source: no
 alpaca_version: master
 alpaca_clone_directory: /opt/alpaca
+alpaca_broker_url: "tcp://localhost:61616"
+alpaca_broker_username: ""
+alpaca_broker_password: ""
 
 alpaca_karaf_repos:
   - mvn:org.apache.camel.karaf/apache-camel/2.20.4/xml/features
@@ -58,6 +61,11 @@ alpaca_settings:
       file.delete.stream: activemq:queue:islandora-indexing-fcrepo-file-delete
       milliner.baseUrl: "{{ alpaca_milliner_base_url }}"
       gemini.baseUrl: "{{ alpaca_gemini_base_url }}"
+  - pid: org.fcrepo.camel.service.activemq 
+    settings:
+      jms.brokerUrl: "{{ alpaca_broker_url }}"
+      jms.userName: "{{ alpaca_broker_username }}"
+      jms.password: "{{ alpaca_broker_password }}"
 
 alpaca_blueprint_settings:
   - pid: ca.islandora.alpaca.connector.ocr

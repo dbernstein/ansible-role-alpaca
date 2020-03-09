@@ -25,4 +25,10 @@
     <package>ca.islandora.alpaca.connector.derivative</package>
   </camelContext>
 
+   <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+    <property name="brokerURL" value="{{ alpaca_broker_url }}"/>
+    <property name="userName" value="{{ alpaca_broker_username }}"/>
+    <property name="password" value="{{ alpaca_broker_password }}"/>
+  </bean>
+
 </blueprint>

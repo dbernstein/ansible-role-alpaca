@@ -35,6 +35,7 @@ alpaca_gemini_base_url: http://localhost:8000/gemini
 alpaca_houdini_base_url: http://localhost:8000/houdini
 alpaca_homarus_base_url: http://localhost:8000/homarus
 alpaca_fits_base_url: http://localhost:8000/crayfits
+alpaca_fedora_base_url: http://localhost:8080/fcrepo/rest
 
 alpaca_settings:
   - pid: ca.islandora.alpaca.http.client
@@ -66,6 +67,12 @@ alpaca_settings:
       jms.brokerUrl: "{{ alpaca_broker_url }}"
       jms.userName: "{{ alpaca_broker_username }}"
       jms.password: "{{ alpaca_broker_password }}"
+  - pid: org.fcrepo.camel.service
+    settings:
+      fcrepo.baseUrl: "{{ alpaca_fedora_base_url }}"
+      fcrepo.authUsername: ""
+      fcrepo.authPassword: "" 
+      fcrepo.authHost: ""
 
 alpaca_blueprint_settings:
   - pid: ca.islandora.alpaca.connector.ocr
